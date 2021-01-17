@@ -1,4 +1,4 @@
-package countries;
+package JTriple.countries;
 
 import berlin.reiche.jtriple.rdf.RdfType;
 

@@ -6,7 +6,14 @@
 
     <groupId>org.example</groupId>
     <artifactId>untitled1</artifactId>
+    <properties>
+        <jena.version>3.10.0</jena.version>
+        <rdfutils.version>3.0-SNAPSHOT</rdfutils.version>
+        <commonsrdf.version>0.5.0</commonsrdf.version>
+        <slf4j.version>1.7.5</slf4j.version>
+    </properties>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.hp.hpl.jena/jena -->
         <dependency>
@@ -29,6 +36,27 @@
         </dependency>
 
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Use Logback as concrete logger for testing -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>0.9.29</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--  Same for commons-logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>cz.cvut.kbss.jopa</groupId>
             <artifactId>jopa-impl</artifactId>
             <version>0.16.2</version>
@@ -37,6 +65,68 @@
             <groupId>cz.cvut.kbss.jopa</groupId>
             <artifactId>ontodriver-jena</artifactId>
             <version>0.16.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.marcobrandizi</groupId>
+            <artifactId>rdfutils-commonsrdf</artifactId>
+            <version>${rdfutils.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+
+        <!-- TEST -->
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-rdf-jena</artifactId>
+            <version>${commonsrdf.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <!-- See below -->
+                <exclusion>
+                    <groupId>org.apache.jena</groupId>
+                    <artifactId>jena-osgi</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Used by commons-rdf-jena, we align it to the rest of Jena -->
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-osgi</artifactId>
+            <scope>test</scope>
+            <version>${jena.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.marcobrandizi</groupId>
+            <artifactId>rdfutils-jena</artifactId>
+            <version>${rdfutils.version}</version>
+            <scope>test</scope>
         </dependency>
 
 

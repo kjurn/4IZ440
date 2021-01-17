@@ -1,8 +1,6 @@
-package countries;
+package JTriple.countries;
 
-import berlin.reiche.jtriple.rdf.RdfIdentifier;
-import berlin.reiche.jtriple.rdf.RdfProperty;
-import berlin.reiche.jtriple.rdf.RdfType;
+import berlin.reiche.jtriple.rdf.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +14,16 @@ public class Countries {
     @RdfProperty("http://telegraphis.net/ontology/geography/geography#isoShortName")
     private List<String> isoShortName = new ArrayList<>();
 
-    @RdfProperty("http://www.geonames.org/ontology#population")
+//    @RdfProperty("http://www.geonames.org/ontology#population")
+    @Transient
     private int population;
+
+    private Continent continent;
+
+    @RdfProperty("http://telegraphis.net/ontology/geography/geography#capital")
+    @RdfIdentifier
+    private String capital;
+
 
     public Continent getContinent() {
         return continent;
@@ -26,10 +32,6 @@ public class Countries {
     public void setContinent(Continent continent) {
         this.continent = continent;
     }
-
-    private Continent continent;
-
-
 
     public String getName() {
         return name;
@@ -53,5 +55,17 @@ public class Countries {
 
     public void setPopulation(int population) {
         this.population = population;
+    }
+
+    public void setIsoShortName(List<String> isoShortName) {
+        this.isoShortName = isoShortName;
+    }
+
+    public String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
     }
 }
