@@ -10,3 +10,5 @@ There are 2 defined tests, which stands for 2 libraries included in this compari
 # How to run
 
 IDE is recommended in order to run tests (e.g Intellij Idea, Eclipse, etc.)
+
+Java 11 or higher is required in order to run tests !
