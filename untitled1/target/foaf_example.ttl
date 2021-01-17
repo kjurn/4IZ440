@@ -1,0 +1,38 @@
+@base          <http://www.example.com/ex/> .
+@prefix ex:    <http://www.example.com/ex/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix exart: <http://www.example.com/ex/article/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+<person/cf469cf131fa785b1c85ff7f5c4f41db>
+        a                foaf:Person ;
+        foaf:familyName  "Smith" ;
+        foaf:givenName   "John" .
+
+<person/426d8353e4aeb80de658bbba895dc417>
+        a                foaf:Person ;
+        foaf:familyName  "Berners Lee" ;
+        foaf:givenName   "Tim" .
+
+<person/013c5cce97dfa061287f01f76aceb1ab>
+        a                foaf:Person ;
+        foaf:familyName  "Hendler" ;
+        foaf:givenName   "James" .
+
+<person/f76953a2c1821eee75a0c2e0982ccb89>
+        a                foaf:Person ;
+        foaf:familyName  "Lassila" ;
+        foaf:givenName   "Ora" .
+
+exart:123  a               foaf:Document ;
+        rdfs:comment       "A new form of Web content that is meaningful to computers will unleash a revolution of new possibilities" ;
+        dcterms:abstract   "A new form of Web content that is meaningful to computers will unleash a revolution of new possibilities" ;
+        dcterms:creator    <person/013c5cce97dfa061287f01f76aceb1ab> , <person/426d8353e4aeb80de658bbba895dc417> , <person/f76953a2c1821eee75a0c2e0982ccb89> ;
+        dcterms:publisher  <person/cf469cf131fa785b1c85ff7f5c4f41db> ;
+        dcterms:title      "The semantic web" .
