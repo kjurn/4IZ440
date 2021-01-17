@@ -10,12 +10,6 @@ import org.junit.Test;
 
 public class Java2RDFCountriesTest  {
 
-//    public static final String EXNS = "http://www.example.com/ex/";
-//
-//    static {
-//        NamespaceUtils.registerNs ( "ex", EXNS );
-//    }
-
     @Test
     public void testMapping () throws Exception {
 
@@ -31,27 +25,18 @@ public class Java2RDFCountriesTest  {
         czech.setCapital("http://telegraphis.net/data/capitals/CZ/Prague#Prague");
         czech.setCurrency("http://telegraphis.net/data/currencies/CZK#CZK");
 
-
-        // You must provide a graph to the mapper factory. Graph is a wrapper from the Apache commons-rdf
-        // API, which is then implemented with a specific RDF framework. Here Jena is used for the latter, but
-        // only for the tests, javq2rdf is pure commons-rdf and doesn't depend on a specific framework.
-        // You'll java2rdf client will likely be, in the way shown here.
-
-        // We're sure it will be the Jena flavour, because we're using this dependency here.
         JenaRDF rdf = (JenaRDF) CommonsRDFUtils.COMMUTILS.getRDF();
 
-        // JenaRDF can generate a graph wrapping a new model via createGraph(). This other approach allows for
-        // better control on the way the model is created and set up (at the expense of framework independence)
         Model model = ModelFactory.createDefaultModel();
 
-        Graph graph = rdf.asGraph (model);
+        Graph graph = rdf.asGraph(model);
 
         // Our factory
         MapperFactory mf = new MapperFactory(graph);
         model.setNsPrefixes (NamespaceUtils.getNamespaces());
 
         // Here we go, starting from the top, a set of graph roots (or even all objects you have)
-        mf.map (czech);
+        mf.map(czech);
 
         // Again, this Jena-specific, since commons-rdf doesn't abstract things like I/O or SPARQL.
         model.write (System.out, "TURTLE");

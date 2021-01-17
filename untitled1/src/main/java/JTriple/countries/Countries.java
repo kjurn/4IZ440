@@ -14,8 +14,13 @@ public class Countries {
     @RdfProperty("http://telegraphis.net/ontology/geography/geography#isoShortName")
     private List<String> isoShortName = new ArrayList<>();
 
-//    @RdfProperty("http://www.geonames.org/ontology#population")
-    @Transient
+    @RdfProperty("http://www.geonames.org/ontology#")
+    private String featureCode;
+    private String featureClass;
+    private String isoAlpha2;
+    private String isoAlpha3;
+    private int isoNumeric;
+
     private int population;
 
     private Continent continent;
@@ -67,5 +72,45 @@ public class Countries {
 
     public void setCapital(String capital) {
         this.capital = capital;
+    }
+
+    public String getFeatureCode() {
+        return featureCode;
+    }
+
+    public void setFeatureCode(String featureCode) {
+        this.featureCode = featureCode;
+    }
+
+    public String getFeatureClass() {
+        return featureClass;
+    }
+
+    public void setFeatureClass(String featureClass) {
+        this.featureClass = featureClass;
+    }
+
+    public String getIsoAlpha2() {
+        return isoAlpha2;
+    }
+
+    public void setIsoAlpha2(String isoAlpha2) {
+        this.isoAlpha2 = isoAlpha2;
+    }
+
+    public String getIsoAlpha3() {
+        return isoAlpha3;
+    }
+
+    public void setIsoAlpha3(String isoAlpha3) {
+        this.isoAlpha3 = isoAlpha3;
+    }
+
+    public int getIsoNumeric() {
+        return isoNumeric;
+    }
+
+    public void setIsoNumeric(int isoNumeric) {
+        this.isoNumeric = isoNumeric;
     }
 }

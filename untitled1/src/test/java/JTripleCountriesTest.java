@@ -16,12 +16,17 @@ public class JTripleCountriesTest {
 //        cz.setContinent(Continent.EU);
         czech.setPopulation(10220000);
         czech.setCapital("Prague");
+        czech.setFeatureClass("http://www.geonames.org/ontology#A");
+        czech.setFeatureCode("http://www.geonames.org/ontology#A.PCL");
+        czech.setIsoAlpha2("CZ");
+        czech.setIsoAlpha3("CZE");
+        czech.setIsoNumeric(203);
 
         Binding binding = new Binding(DEFAULT_NAMESPACE);
         Model model = binding.getModel();
         model.setNsPrefix("countries", DEFAULT_NAMESPACE);
 
         binding.bind(czech);
-        model.write(System.out, "N-TRIPLES");
+        model.write(System.out, "TURTLE");
     }
 }
