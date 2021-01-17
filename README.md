@@ -5,7 +5,7 @@ This project is about comparison of different libraries in Java that are used fo
 
 # Tests
 
-There are 3 defined tests, which stands for 3 libraries included in this comparison. 
+There are 2 defined tests, which stands for 2 libraries included in this comparison. 
 
 # How to run
 
